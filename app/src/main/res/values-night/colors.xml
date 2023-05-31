@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#303030</color>
+    <color name="colorPrimaryDark">#303030</color>
+    <color name="colorAccent">#008577</color>
+
+    <color name="whitePrimary">#B1B1B1</color>
+    <color name="whiteSecondary">#7C7B7B</color>
+    <color name="whiteThird">#5E5E5E</color>
+
+    <color name="blackPrimary">#303030</color>
+    <color name="blackSecondary">#292929</color>
+    <color name="blackThird">#262626</color>
+
+    <color name="lightYellow">#262626</color>
+
+</resources>
