@@ -12,6 +12,7 @@ class SplashActivity : BaseBindingActivity<ActivitySplashBinding>() {
         super.onCreate(savedInstanceState)
         window.decorView.postDelayed({
             ActivityHelper.start(MainActivity::class.java)
+//            ActivityHelper.start(TestActivity::class.java)
             ActivityHelper.finish(SplashActivity::class.java)
         },2000)
     }
