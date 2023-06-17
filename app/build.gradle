@@ -31,11 +31,49 @@ android {
             }
         }
 
+        //APK瘦身之删除无用资源：保留中文简体的string.xml，它是存在于AndroidX库中的
+        resConfigs "zh-rCN"
+        //resConfigs "zh-rCN","en"
+
+        //APK瘦身之删除无用资源：市面上的绝大部分手机CPU都是arm架构的，模拟器的是x86架构
+        //所以在使用第三方的so库时，只需要兼容这一种，放进APK中即可兼容
+        /*ndk{
+            abiFilters "armeabi-v7a"    //armeabi-v7a对应的是32位，arm64-v8a对应64位
+        }*/
+
+        //APK瘦身之删除无用资源：对于arm64架构的设备，使用v7a可以向上兼容，但性能不如arm64的so库
+        //所以如果需要打包出针对arm64、armv7的apk，可以使用productFlavor或者spilt
+        //方式一：
+        /*flavorDimensions "default"
+        productFlavors{
+            arm32{
+                dimension "default"
+                ndk{ abiFilters "armeabi-v7a" }
+            }
+            arm64{
+                dimension "default"
+                ndk{ abiFilters "arm64-v8a" }
+            }
+        }*/
+        //方式二：
+        /*spilts{
+            abi{
+                enable true
+                reset()
+                include "arm64-v8a","armeabi-v7a"
+                universalApk true //true代表打包一个包含所有so库的APK
+            }
+        }*/
+
     }
 
     buildTypes {
         release {
+            //代码缩减
             minifyEnabled false
+            //资源缩减，只有与代码缩减配合使用才有效。
+            //在代码缩减器移除所有不使用的资源后，资源缩减器便可确定应用仍要使用的资源
+            //shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -50,7 +88,7 @@ android {
     }
 
     buildFeatures{
-        viewBinding = true
+        viewBinding true
     }
 
 }
