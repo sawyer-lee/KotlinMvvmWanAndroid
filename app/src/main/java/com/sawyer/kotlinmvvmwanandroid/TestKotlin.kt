@@ -1,16 +1,13 @@
 package com.sawyer.kotlinmvvmwanandroid
 
 
-import android.util.SparseArray
-import androidx.core.util.set
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.runBlocking
 import kotlin.math.sqrt
 
 fun main(){
-    val sparseArray = SparseArray<ByteArray>(16)
+//    val sparseArray = SparseArray<ByteArray>(16)
 //    val hashMap = HashMap<Int,ByteArray>(16)
-    val start = System.currentTimeMillis()
+
+    /*val start = System.currentTimeMillis()
     runBlocking {
         coroutineScope {
             repeat(10000){
@@ -20,8 +17,14 @@ fun main(){
         }
     }
     val end = System.currentTimeMillis()
-    println("total time = ${end - start}ms")
+    println("total time = ${end - start}ms")*/
 
+
+    /*val process: Process = Runtime.getRuntime().exec("java -version")
+    val bufferedReader = BufferedReader(InputStreamReader(process.errorStream))
+    val readLine: String = bufferedReader.readLine()
+    println(readLine)
+    process.destroy()*/
 
 //    println("density: ${calculate()}")
 }
