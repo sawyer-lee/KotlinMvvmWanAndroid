@@ -3,6 +3,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-parcelize'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
+//引入自定义的加固插件
+apply plugin: 'com.sawyer.jiagu'
 
 android {
     compileSdkVersion 30
@@ -68,7 +70,7 @@ android {
     }
 
     signingConfigs{
-        config{
+        release {
             storeFile file(KEY_PATH)
             storePassword KEY_PASS
             keyAlias ALIAS_NAME
@@ -78,6 +80,7 @@ android {
 
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             //代码缩减
             minifyEnabled false
             //资源缩减，只有与代码缩减配合使用才有效。
@@ -92,6 +95,7 @@ android {
     }
 
     compileOptions {
+        encoding = 'UTF-8'
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -99,7 +103,12 @@ android {
     buildFeatures{
         viewBinding true
     }
+}
 
+jiagu{
+    userName '16637710725'
+    password 'leejyhg#tai1'
+    jiaGuTools 'D:\\Soft\\360jiagubao\\jiagu\\jiagu.jar'
 }
 
 dependencies {
@@ -159,3 +168,4 @@ dependencies {
     implementation 'com.squareup.moshi:moshi-kotlin:1.11.0'
 
 }
+
