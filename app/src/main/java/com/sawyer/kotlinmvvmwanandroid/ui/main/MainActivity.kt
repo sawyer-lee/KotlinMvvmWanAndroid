@@ -26,6 +26,7 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
     private var animator: ViewPropertyAnimator? = null
     private var currentBottomNavigationState = true
 
+//    @InjectTime
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        val file = File(Environment.getExternalStorageDirectory(),"catch.trace")
