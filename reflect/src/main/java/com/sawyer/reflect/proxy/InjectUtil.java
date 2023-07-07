@@ -51,8 +51,12 @@ public class InjectUtil {
                             //10.获取到当前Button
                             View view = activity.findViewById(viewId);
                             //11.反射执行setOnClickListener()/setOnLongClickListener()
+                            /**
+                             * getMethod: 获取类的所有public方法，包括自身的和从父类、接口继承的
+                             * getDeclaredMethod:获取类自身声明的方法(包括public、private、protected修饰的)
+                             * 所以此处需要使用getMethod。
+                             */
                             Method setter = view.getClass().getMethod(listenerSetter, listenerType);
-                            Log.d("DynamicActivity", "setter = "+ setter.getName());
                             setter.invoke(view, listenerProxy);
                         }
                     } catch (Exception e) {
